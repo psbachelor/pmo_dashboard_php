@@ -32,7 +32,7 @@ Sheets checkpoint/epoch/header fences được thay bằng InnoDB atomic import 
 
 ## Accounts và pilot sạch
 
-GAS PBKDF2-HMAC-SHA256 được giữ; cần AUTH_PEPPER gốc để xác thực hash import. PHP foundation `password_hash` cũng được nhận diện khi đã chuẩn hóa snapshot. Không chuyển secrets sang frontend hoặc audit. Session rows có thể giữ trong export để bảo toàn IDs nhưng browser PHP cần cookie login mới, không chấp nhận bearer token tùy ý từ client.
+GAS PBKDF2-HMAC-SHA256 được giữ; cần AUTH_PEPPER gốc để xác thực hash import. PHP foundation `password_hash` cũng được nhận diện khi đã chuẩn hóa snapshot. Không chuyển secrets sang frontend hoặc audit. Session rows có thể giữ trong export để bảo toàn IDs nhưng browser PHP cần cookie login mới, mỗi tab gửi token đã bind với PHP cookie; không chấp nhận token tùy ý từ browser session khác.
 
 `php scripts/clean_pilot.php --input=/private/export.json --output=/private/clean-copy.json` tạo **file mới**, giữ USERS/AUTH_USERS/CALENDAR/PROCEDURE_TEMPLATES, xóa dữ liệu dự án/session/attempt/audit trong bản sao, bỏ maintenance journals và đặt schema unified. Cần active admin account. File đầu ra 0600; source không đổi. Import file vào DB mới, sau đó `php scripts/seed.php` tạo sample, giữ nguyên directory/accounts/calendar/templates. Nếu seed đã chạy hoặc có project data, script từ chối chạy lại.
 

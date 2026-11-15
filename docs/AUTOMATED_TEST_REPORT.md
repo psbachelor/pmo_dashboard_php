@@ -2,7 +2,7 @@
 
 Ngày chạy: **2026-11-15**. Baseline GAS **`c0e3db58a7d0522408c633dbb22403522e4ff8d3`**, HEAD remote xác nhận trước khi coding. Code kiểm thử pin bằng `docs/evidence/CODE_SHA256SUMS`; SHA commit phát hành được cung cấp cùng PR và kết quả cuối.
 
-**Kết quả thực chạy: 247 ca/nhóm kiểm tra đạt, 0 fail; backend có 174 assertions.** PHP **8.3.36**, MySQL **8.0.46**, Chromium headless desktop 1440×1000 và mobile 390×844. Không có nhóm kiểm thử bắt buộc nào bị bỏ do thiếu PHP/MySQL.
+**Kết quả thực chạy: 250 ca/nhóm kiểm tra đạt, 0 fail; backend có 174 assertions.** PHP **8.3.36**, MySQL **8.0.46**, Chromium headless desktop 1440×1000 và mobile 390×844. Không có nhóm kiểm thử bắt buộc nào bị bỏ do thiếu PHP/MySQL.
 
 | Nhóm | Kết quả | Bằng chứng |
 |---|---:|---|
@@ -13,8 +13,8 @@ Ngày chạy: **2026-11-15**. Baseline GAS **`c0e3db58a7d0522408c633dbb22403522e
 | Differential GAS legacy | 68/68 | evidence/legacy-oracle.log |
 | Database migration/import/rollback/CSV/seed | 39/39 | evidence/migration.log |
 | Concurrency, retry sau lock, read snapshot, bảo toàn ghi chú khi di chuyển cây | 4/4 | evidence/concurrency.log |
-| HTTP API/session/CSRF/schema/validation | 14/14 | evidence/api.log |
-| Browser thao tác nghiệp vụ | 17/17 | evidence/browser.log |
+| HTTP API/session/CSRF/schema/validation | 16/16 | evidence/api.log |
+| Browser thao tác nghiệp vụ | 18/18 | evidence/browser.log |
 | Browser XSS: stored HTML, hostile inline ID, handler execution | 3/3 | evidence/security.log |
 | Schema từ DB trắng, chạy migration lại, seed/bootstrap, export/clean-pilot, validate sau browser | PASS | evidence/migrate.log, schema.log, bootstrap.log, export.log, clean-pilot.log, post-browser-schema.log |
 
@@ -28,7 +28,7 @@ Unit/integration kiểm tra Admin/Executive/PM/PIC/outsider, active/temporary pa
 
 Migration test tạo DB mới, đối chiếu fingerprint mọi cell/ID/reference/thứ tự sau import/export, template có ID/Step_No lặp, legacy conversion/warnings, malformed CSV/BOM/quoted multiline, broken reference, constraint violation, lỗi insert giữa chừng và rollback cả 17 bảng. Retry journal hoàn tất không áp lại dữ liệu cũ. Hai PDO connections kiểm tra write fence/lock timeout/retry và snapshot đọc nhất quán. Một PDO statement interceptor tạo cập nhật ghi chú từ kết nối khác ngay giữa read/structural write: ghi chú phải được giữ, và structural operation phải báo integrity conflict/rollback. Writer chỉ UPDATE Parent_Task_ID/Sort_Order, không ghi lại các trường nghiệp vụ khác. Clean-pilot → seed được kiểm tra bảo toàn directory/accounts/calendar/templates và chặn seed lần hai.
 
-Browser kiểm tra login, search/routing, thêm task bằng Enter/autosave, inline edit/Escape, +25/custom progress, timeline click/Shift-click/milestone, PIC/parent search, outdent, membership delta, checklist/issue forms, Gantt/workload day/week, project create/edit/template/import/assignment, My Tasks update, Issue Register, archive/restore/purge dialogs, account provisioning, mobile/forced-password và không có uncaught frontend error. Security kiểm tra prepared SQL, CSRF, HttpOnly/SameSite, server-side authorization, schema gate, helper API whitelist và XSS trong browser.
+Browser kiểm tra login, search/routing, thêm task bằng Enter/autosave, inline edit/Escape, +25/custom progress, timeline click/Shift-click/milestone, PIC/parent search, outdent, membership delta, checklist/issue forms, Gantt/workload day/week, project create/edit/template/import/assignment, My Tasks update, Issue Register, archive/restore/purge dialogs, account provisioning, mobile/forced-password, hai tab đăng nhập hai actor riêng/logout độc lập và không có uncaught frontend error. Security kiểm tra prepared SQL, CSRF, HttpOnly/SameSite, cookie đơn lẻ không chọn actor và token từ PHP session khác bị từ chối, server-side authorization, schema gate, helper API whitelist và XSS trong browser.
 
 ## Tái lập
 

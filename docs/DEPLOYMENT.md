@@ -33,7 +33,7 @@ Nếu hosting không có SSH/CLI, chạy initialization bằng PHP 8.3 CLI từ 
 
 Mở domain qua HTTPS, đăng nhập, đổi mật khẩu, mở một dự án mẫu để kiểm tra thao tác cuối cùng trên hosting. Test tự động đã chạy toàn bộ tại môi trường cô lập; UAT này xác nhận môi trường triển khai và dữ liệu cuối cùng, không thay cho test từng module.
 
-PHP session storage phải riêng và writable cho tài khoản web; dùng cookie HttpOnly, SameSite=Strict, Secure khi HTTPS. Phiên có hạn tối đa 8 giờ và được kiểm tra trong MySQL mỗi request. Không chia sẻ session directory giữa UAT và production; dùng hostname riêng. Tắt display_errors, giữ error_log ở ngoài public, không bật trace trừ khi cần số liệu vận hành. Trace chỉ ghi tên operation/count/time, không ghi payload/token.
+PHP session storage phải riêng và writable cho tài khoản web; dùng cookie HttpOnly, SameSite=Strict, Secure khi HTTPS. Phiên có hạn tối đa 8 giờ và được kiểm tra trong MySQL mỗi request. Mỗi tab có token riêng qua X-PMO-Token; PHP session chỉ cho phép token đã phát hành trong browser này, tránh đổi actor khi tab khác đăng nhập. Không chia sẻ session directory giữa UAT và production; dùng hostname riêng. Tắt display_errors, giữ error_log ở ngoài public, không bật trace trừ khi cần số liệu vận hành. Trace chỉ ghi tên operation/count/time, không ghi payload/token.
 
 Không mở CORS hoặc thêm auth theo email. App đọc quyền từ USERS/PROJECT_MEMBERS/TASKS/ASSIGNMENTS/CHECKLIST_ITEMS ở backend mỗi request. Archived chỉ Admin đọc, mọi vai trò bị chặn ghi; restore về On Hold; purge cần xác nhận `PURGE:<Project_ID>` và giữ AUDIT_LOG.
 

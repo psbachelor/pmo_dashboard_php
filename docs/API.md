@@ -1,6 +1,6 @@
 # API inventory
 
-29 browser RPC operations giữ tên GAS. Endpoint `POST index.php?rpc=1`, JSON `{method,args}`, header `X-CSRF-Token`, cookie PHP session. Client không được cung cấp actor/role/bearer token; token trong chữ ký GAS được thay bằng session phía PHP. Các write nghiệp vụ vẫn có `clientSchema` là argument cuối cùng như AppJS gốc. `ControlTower::call` có whitelist tường minh; helper và CLI không gọi được qua HTTP.
+29 browser RPC operations giữ tên GAS. Endpoint `POST index.php?rpc=1`, JSON `{method,args}`, headers `X-CSRF-Token` và `X-PMO-Token`, cookie PHP session. Mỗi tab gửi opaque token của chính tab như sessionStorage GAS; server kiểm tra token đã được phát hành trong PHP session này và còn active trong MySQL. Client không cấp actor/role; token tự đưa từ PHP session khác không được chấp nhận. Các write nghiệp vụ vẫn có `clientSchema` là argument cuối cùng như AppJS gốc. `ControlTower::call` có whitelist tường minh; helper và CLI không gọi được qua HTTP.
 
 | Operation | GAS arguments | Permission / guard | GAS source | PHP target | Test suites |
 |---|---|---|---|---|---|

@@ -6,10 +6,12 @@ PASS api mandatory password gate enforced by backend
 PASS api password change revokes old session
 PASS api login normal session
 PASS api portfolio and initial dashboard HTTP
+PASS api cookie alone cannot choose an actor without its tab token
+PASS api a token from another PHP browser session is rejected
 PASS api backend API whitelist rejects helpers and maintenance
 PASS api malformed arguments rejected
 PASS api GET cannot mutate
 PASS api schema stale client cannot write
 PASS api query injection cannot bypass project scope
 PASS api logout clears session
-{"passed":14,"failed":0}
+{"passed":16,"failed":0}

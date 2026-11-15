@@ -1,5 +1,5 @@
 async function rpc(method,args){
- const response=await fetch('index.php?rpc=1',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Token':document.querySelector('meta[name="csrf-token"]').content},body:JSON.stringify({method,args})});
+ const response=await fetch('index.php?rpc=1',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Token':document.querySelector('meta[name="csrf-token"]').content,'X-PMO-Token':S.token},body:JSON.stringify({method,args})});
  const body=await response.json();if(!response.ok||body.error)throw Error(body.error||'API error');return body.result;
 }
 'use strict';

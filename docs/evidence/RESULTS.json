@@ -31,11 +31,11 @@
     ]
   },
   "http_api": {
-    "passed": 14,
+    "passed": 16,
     "failed": 0
   },
   "browser": {
-    "passed": 17,
+    "passed": 18,
     "failed": 0
   },
   "xss_browser": {
@@ -47,7 +47,7 @@
       "no injected handler executes"
     ]
   },
-  "total_passed": 247,
+  "total_passed": 250,
   "baseline": "c0e3db58a7d0522408c633dbb22403522e4ff8d3",
   "date": "2026-11-15",
   "syntax_php_files": 22

@@ -18,9 +18,13 @@ try{
     $body=json_decode(file_get_contents('php://input'),true,64,JSON_THROW_ON_ERROR);
     if(!is_array($body)||!is_string($body['method']??null)||!is_array($body['args']??null)||!array_is_list($body['args'])||count($body['args'])>10)respond(['error'=>'Invalid request'],400);
     $app=new \VCX\Parity\ControlTower(new \VCX\Parity\Store(\VCX\Core\Database::connect()));$method=$body['method'];
-    $result=$app->call($method,$body['args'],$_SESSION['api_token']??'');
-    if($method==='login'){session_regenerate_id(true);$_SESSION['api_token']=$result['token'];}
-    if(in_array($method,['logout','changePassword'],true)){unset($_SESSION['api_token']);session_regenerate_id(true);}
+    $token=(string)($_SERVER['HTTP_X_PMO_TOKEN']??'');
+    if($method!=='login'&&($token===''||!isset($_SESSION['tokens'][hash('sha256',$token)])))respond(['error'=>'Bạn cần đăng nhập để tiếp tục.'],422);
+    $result=$app->call($method,$body['args'],$token);
+    // Preserve GAS sessionStorage isolation: every tab presents its own issued token.
+    // The HttpOnly PHP session binds those tokens to this browser, never to a client-supplied role.
+    if($method==='login'){session_regenerate_id(true);$_SESSION['tokens'][hash('sha256',$result['token'])]=true;}
+    if(in_array($method,['logout','changePassword'],true)){unset($_SESSION['tokens'][hash('sha256',$token)]);session_regenerate_id(true);}
     respond(['result'=>$result]);
 }catch(JsonException|TypeError|ArgumentCountError $e){respond(['error'=>'Invalid request'],400);}
 catch(PDOException $e){error_log('PMO database operation failed: '.$e->getCode());respond(['error'=>'Database operation failed.'],500);}
