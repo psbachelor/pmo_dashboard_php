@@ -1,0 +1,1234 @@
+{
+  "baseline": "c0e3db58a7d0522408c633dbb22403522e4ff8d3",
+  "files": [
+    {
+      "file": "src/AppJS.html",
+      "sha256": "c9d80e0dd096260541fe3fc0ba03bbb8f57bd7724b9d6d0473ade5cf77bbcb35",
+      "bytes": 119625,
+      "functions": [
+        {
+          "name": "perfStart",
+          "args": ""
+        },
+        {
+          "name": "perfEnd",
+          "args": "operation,start"
+        },
+        {
+          "name": "invalidateClient",
+          "args": "method"
+        },
+        {
+          "name": "gas",
+          "args": "method,...args"
+        },
+        {
+          "name": "readGas",
+          "args": "method,...args"
+        },
+        {
+          "name": "gasPublic",
+          "args": "method,...args"
+        },
+        {
+          "name": "modalFormOpen",
+          "args": ""
+        },
+        {
+          "name": "modalBusy",
+          "args": ""
+        },
+        {
+          "name": "formStatus",
+          "args": "form,message,error=false"
+        },
+        {
+          "name": "ensurePortfolio",
+          "args": ""
+        },
+        {
+          "name": "ensureDashboard",
+          "args": ""
+        },
+        {
+          "name": "showLogin",
+          "args": ""
+        },
+        {
+          "name": "doLogin",
+          "args": "e"
+        },
+        {
+          "name": "doLogout",
+          "args": ""
+        },
+        {
+          "name": "notify",
+          "args": "msg,error=false"
+        },
+        {
+          "name": "setBusy",
+          "args": "msg='\u0110ang t\u1ea3i...'"
+        },
+        {
+          "name": "load",
+          "args": ""
+        },
+        {
+          "name": "render",
+          "args": ""
+        },
+        {
+          "name": "chooseView",
+          "args": "v,fromHistory=false"
+        },
+        {
+          "name": "projectName",
+          "args": "id"
+        },
+        {
+          "name": "userName",
+          "args": "id"
+        },
+        {
+          "name": "countIssues",
+          "args": "projectId"
+        },
+        {
+          "name": "drawDashboard",
+          "args": ""
+        },
+        {
+          "name": "drawProjects",
+          "args": ""
+        },
+        {
+          "name": "toggleArchived",
+          "args": ""
+        },
+        {
+          "name": "parseDay",
+          "args": "s"
+        },
+        {
+          "name": "plusDays",
+          "args": "s,n"
+        },
+        {
+          "name": "monday",
+          "args": "s"
+        },
+        {
+          "name": "toggleTree",
+          "args": "id"
+        },
+        {
+          "name": "drawResources",
+          "args": ""
+        },
+        {
+          "name": "showWorkDetail",
+          "args": "pi,wi"
+        },
+        {
+          "name": "drawIssues",
+          "args": ""
+        },
+        {
+          "name": "showModal",
+          "args": "title,content"
+        },
+        {
+          "name": "closeModal",
+          "args": ""
+        },
+        {
+          "name": "buildWorkspaceSections",
+          "args": "d"
+        },
+        {
+          "name": "archiveProject",
+          "args": "id"
+        },
+        {
+          "name": "restoreProject",
+          "args": "id"
+        },
+        {
+          "name": "purgeProject",
+          "args": "id"
+        },
+        {
+          "name": "showImportTemplate",
+          "args": "projectId"
+        },
+        {
+          "name": "editChecklist",
+          "args": "id"
+        },
+        {
+          "name": "formField",
+          "args": "[key,label,type],value,projectId"
+        },
+        {
+          "name": "editForm",
+          "args": "entity,record={},projectId=''"
+        },
+        {
+          "name": "editProject",
+          "args": "id"
+        },
+        {
+          "name": "taskRecord",
+          "args": "id"
+        },
+        {
+          "name": "editTask",
+          "args": "projectId,id"
+        },
+        {
+          "name": "issueRecord",
+          "args": "id"
+        },
+        {
+          "name": "editIssue",
+          "args": "projectId,id"
+        },
+        {
+          "name": "editAssignment",
+          "args": "projectId"
+        },
+        {
+          "name": "editMyTask",
+          "args": "id"
+        },
+        {
+          "name": "applySavedTask",
+          "args": "task,projectId,fromProject,version"
+        },
+        {
+          "name": "upsert",
+          "args": "list"
+        },
+        {
+          "name": "myTaskRow",
+          "args": "t"
+        },
+        {
+          "name": "drawMyTasks",
+          "args": ""
+        },
+        {
+          "name": "newMyIssue",
+          "args": "projectId"
+        },
+        {
+          "name": "editMyIssue",
+          "args": "issueId"
+        },
+        {
+          "name": "drawUsers",
+          "args": ""
+        },
+        {
+          "name": "addPasswordToggles",
+          "args": "root"
+        },
+        {
+          "name": "showChangePassword",
+          "args": ""
+        },
+        {
+          "name": "workspaceDirty",
+          "args": ""
+        },
+        {
+          "name": "workspaceLeave",
+          "args": ""
+        },
+        {
+          "name": "workspaceIndex",
+          "args": "w"
+        },
+        {
+          "name": "workspaceRowNode",
+          "args": "w,r"
+        },
+        {
+          "name": "workspaceStatus",
+          "args": "w,rows=[]"
+        },
+        {
+          "name": "queueWorkspace",
+          "args": "w,row,fields"
+        },
+        {
+          "name": "workspacePacket",
+          "args": "row"
+        },
+        {
+          "name": "flushWorkspace",
+          "args": "w"
+        },
+        {
+          "name": "workspaceRefreshDerived",
+          "args": "w,changed=[],previousParent=''"
+        },
+        {
+          "name": "ancestors",
+          "args": "id"
+        },
+        {
+          "name": "workspaceSyncCells",
+          "args": "w,r"
+        },
+        {
+          "name": "bindModalReferences",
+          "args": "root"
+        },
+        {
+          "name": "workspaceMemberWarnings",
+          "args": "w"
+        },
+        {
+          "name": "workspaceMembersSection",
+          "args": "w"
+        },
+        {
+          "name": "workspaceApplyMemberReferences",
+          "args": "w,result"
+        },
+        {
+          "name": "workspaceMemberOptions",
+          "args": "w"
+        },
+        {
+          "name": "workspaceMemberBlock",
+          "args": "w,id"
+        },
+        {
+          "name": "workspaceMemberDraftPaint",
+          "args": "w"
+        },
+        {
+          "name": "workspaceManageMembers",
+          "args": "w"
+        },
+        {
+          "name": "workspacePaintColors",
+          "args": "w,r"
+        },
+        {
+          "name": "cancelLayer",
+          "args": "layer"
+        },
+        {
+          "name": "workspaceParentOptions",
+          "args": "w"
+        },
+        {
+          "name": "workspaceParentLabel",
+          "args": "w,id"
+        },
+        {
+          "name": "workspaceRefreshParents",
+          "args": "w"
+        },
+        {
+          "name": "workspaceAssignees",
+          "args": "w"
+        },
+        {
+          "name": "workspaceAssigneeLabel",
+          "args": "w,id"
+        },
+        {
+          "name": "workspaceReferenceLabel",
+          "args": "w,field,id"
+        },
+        {
+          "name": "workspaceValidParent",
+          "args": "w,row,parentId"
+        },
+        {
+          "name": "workspaceReferenceOptions",
+          "args": "w,r,field"
+        },
+        {
+          "name": "workspaceCloseReference",
+          "args": "restore=true"
+        },
+        {
+          "name": "workspaceOpenReference",
+          "args": "w,input,query=''"
+        },
+        {
+          "name": "workspaceHighlightReference",
+          "args": "active"
+        },
+        {
+          "name": "workspaceChooseReference",
+          "args": "active,index"
+        },
+        {
+          "name": "workspaceProgressPaint",
+          "args": "w,r"
+        },
+        {
+          "name": "workspaceQuickProgress",
+          "args": "w,r"
+        },
+        {
+          "name": "workspaceCurrent",
+          "args": ""
+        },
+        {
+          "name": "workspaceRetry",
+          "args": ""
+        },
+        {
+          "name": "workspaceCompare",
+          "args": "w"
+        },
+        {
+          "name": "openProject",
+          "args": "id,fromHistory=false"
+        },
+        {
+          "name": "renderProject",
+          "args": "d"
+        },
+        {
+          "name": "workspaceStructureVersion",
+          "args": "w"
+        },
+        {
+          "name": "workspaceSelectStructure",
+          "args": "w,key,event"
+        },
+        {
+          "name": "workspaceStructureSelection",
+          "args": "w"
+        },
+        {
+          "name": "workspaceStructureRoots",
+          "args": "w"
+        },
+        {
+          "name": "workspaceStructureReady",
+          "args": "w"
+        },
+        {
+          "name": "workspaceStructureAllowed",
+          "args": "w,action"
+        },
+        {
+          "name": "workspaceDragReady",
+          "args": "w"
+        },
+        {
+          "name": "workspaceDropPlan",
+          "args": "w,target,action"
+        },
+        {
+          "name": "workspaceDragClear",
+          "args": "w"
+        },
+        {
+          "name": "workspaceDragPreview",
+          "args": "w,x,y"
+        },
+        {
+          "name": "workspaceBindDrag",
+          "args": "w,grid"
+        },
+        {
+          "name": "workspaceStructurePaint",
+          "args": "w"
+        },
+        {
+          "name": "workspaceMergeStructure",
+          "args": "w,detail,acceptConflicts=false"
+        },
+        {
+          "name": "workspaceDrainStructure",
+          "args": "w"
+        },
+        {
+          "name": "workspaceStructure",
+          "args": "w,action,extra={},retry=false"
+        },
+        {
+          "name": "workspaceStructureRecover",
+          "args": "w,decision"
+        },
+        {
+          "name": "unifiedForest",
+          "args": "tasks,collapsed=new Set("
+        },
+        {
+          "name": "dates",
+          "args": "node"
+        },
+        {
+          "name": "visit",
+          "args": "node,depth"
+        },
+        {
+          "name": "workspaceHierarchy",
+          "args": "w"
+        },
+        {
+          "name": "workspaceDisplayTask",
+          "args": "w,r"
+        },
+        {
+          "name": "workspaceReorder",
+          "args": "w"
+        },
+        {
+          "name": "workspaceOrdered",
+          "args": "w"
+        },
+        {
+          "name": "workspaceDuration",
+          "args": "t"
+        },
+        {
+          "name": "workspaceRowHtml",
+          "args": "w,r,depth"
+        },
+        {
+          "name": "drawWorkspaceGrid",
+          "args": "w"
+        },
+        {
+          "name": "workspaceDetails",
+          "args": "id"
+        },
+        {
+          "name": "workspaceAdd",
+          "args": "w,name"
+        },
+        {
+          "name": "workspaceEdit",
+          "args": "w,input"
+        },
+        {
+          "name": "timelineWindow",
+          "args": "start,step,count"
+        },
+        {
+          "name": "timelineCellState",
+          "args": "task,date,step"
+        },
+        {
+          "name": "timelineCells",
+          "args": "task,window,editable=false"
+        },
+        {
+          "name": "timelineHeaders",
+          "args": "window"
+        },
+        {
+          "name": "workspaceProgressCustom",
+          "args": "w,r"
+        },
+        {
+          "name": "drawWorkspaceTimeline",
+          "args": "w,changed"
+        },
+        {
+          "name": "workspaceTimelineEdit",
+          "args": "w,button,event"
+        },
+        {
+          "name": "drawGantt",
+          "args": ""
+        },
+        {
+          "name": "line",
+          "args": "name,start,end,rag,level,type='Summary',projectId=''"
+        }
+      ]
+    },
+    {
+      "file": "src/AuthService.gs",
+      "sha256": "856fbfc66d6d7557cec5cdbd4b6206f6fc9801181c7d2277acdcd20a1989cdfe",
+      "bytes": 10383,
+      "functions": [
+        {
+          "name": "hex_",
+          "args": "bytes"
+        },
+        {
+          "name": "sha256_",
+          "args": "str"
+        },
+        {
+          "name": "byteArray_",
+          "args": "s"
+        },
+        {
+          "name": "bytesHex_",
+          "args": "a"
+        },
+        {
+          "name": "hmac_",
+          "args": "key,data"
+        },
+        {
+          "name": "derive_",
+          "args": "password,salt,iterations"
+        },
+        {
+          "name": "randomToken_",
+          "args": ""
+        },
+        {
+          "name": "login",
+          "args": "username,password"
+        },
+        {
+          "name": "actor_",
+          "args": "token,allowTemporary"
+        },
+        {
+          "name": "logout",
+          "args": "token"
+        },
+        {
+          "name": "isAdmin_",
+          "args": "a"
+        },
+        {
+          "name": "visibleProjects_",
+          "args": "a"
+        },
+        {
+          "name": "assertView_",
+          "args": "a,projectId"
+        },
+        {
+          "name": "isMember_",
+          "args": "a,projectId"
+        },
+        {
+          "name": "canEdit_",
+          "args": "a,projectId"
+        },
+        {
+          "name": "canUpdateTask_",
+          "args": "a,task"
+        },
+        {
+          "name": "assertEdit_",
+          "args": "a,projectId"
+        },
+        {
+          "name": "getBootstrap",
+          "args": "token"
+        },
+        {
+          "name": "changePassword",
+          "args": "token,oldPassword,newPassword"
+        },
+        {
+          "name": "adminProvisionUser",
+          "args": "token,userId,username,newPassword"
+        },
+        {
+          "name": "bootstrapAdmin_",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "file": "src/CleanPilotSetup.gs",
+      "sha256": "c51648e143a5868996e0ac4e24b5bc62ccdc4e517a68c6ab446dd255130adb0a",
+      "bytes": 5367,
+      "functions": [
+        {
+          "name": "createCleanUnifiedPilotDatabase",
+          "args": ""
+        },
+        {
+          "name": "readRows",
+          "args": "sheetName"
+        }
+      ]
+    },
+    {
+      "file": "src/Config.gs",
+      "sha256": "efef64243aeb8f2cc68759e90e0029571ba7224abea0fe61bc4a113a9201a62d",
+      "bytes": 4530,
+      "functions": [
+        {
+          "name": "doGet",
+          "args": ""
+        },
+        {
+          "name": "include",
+          "args": "filename"
+        },
+        {
+          "name": "getDb_",
+          "args": ""
+        },
+        {
+          "name": "validateSetup",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "file": "src/DashboardService.gs",
+      "sha256": "1b8e9fe90e95557c9396559a188aef0f26eb878502e5e94bf6bf586a62e093cc",
+      "bytes": 3689,
+      "functions": [
+        {
+          "name": "getDashboard",
+          "args": "token"
+        },
+        {
+          "name": "getPortfolioData",
+          "args": "token"
+        },
+        {
+          "name": "getInitialData",
+          "args": "token"
+        }
+      ]
+    },
+    {
+      "file": "src/DataService.gs",
+      "sha256": "87c60a2c13844d4c49319f6eca3c6e7bbaa9670445a878b65f10f422d006f95b",
+      "bytes": 3163,
+      "functions": [
+        {
+          "name": "rows_",
+          "args": "table,raw"
+        },
+        {
+          "name": "clean_",
+          "args": "table,input,existing"
+        },
+        {
+          "name": "persist_",
+          "args": "table,row,rowNo"
+        },
+        {
+          "name": "newId_",
+          "args": "prefix"
+        },
+        {
+          "name": "toIso_",
+          "args": "s"
+        },
+        {
+          "name": "cmpDates_",
+          "args": "a,b"
+        },
+        {
+          "name": "audit_",
+          "args": "actor,table,id,action,before,after"
+        },
+        {
+          "name": "ensure_",
+          "args": "condition,msg"
+        },
+        {
+          "name": "same_",
+          "args": "a,b"
+        },
+        {
+          "name": "isoToday_",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "file": "src/Index.html",
+      "sha256": "e4a578e8fe9828b1b9d80f4855446e278d78ec9d627ea1ad2d47e18a802db550",
+      "bytes": 2266,
+      "functions": []
+    },
+    {
+      "file": "src/IssueService.gs",
+      "sha256": "e023f265564559e5c2ee9c687234378ad05017f5fb800b661ed82d70c5c9619d",
+      "bytes": 2239,
+      "functions": [
+        {
+          "name": "saveIssue",
+          "args": "token,payload,clientSchema"
+        }
+      ]
+    },
+    {
+      "file": "src/Performance.gs",
+      "sha256": "b8723b700b7593b2b269af9c5320e944908d757b92dd1ca49b9edd4ef1b9745e",
+      "bytes": 1331,
+      "functions": [
+        {
+          "name": "withRequest_",
+          "args": "operation,fn"
+        },
+        {
+          "name": "timed_",
+          "args": "stage,fn"
+        },
+        {
+          "name": "countIo_",
+          "args": "kind,table"
+        },
+        {
+          "name": "invalidateRequest_",
+          "args": "table"
+        }
+      ]
+    },
+    {
+      "file": "src/ProcedureService.gs",
+      "sha256": "b8067180a63a96cf55583972d5a8b5ce62cf42c4e45b8217c4bc8921fc9fb784",
+      "bytes": 4935,
+      "functions": [
+        {
+          "name": "applyProcedureTemplate",
+          "args": "token,projectId,templateId,phaseName,startDate,clientSchema"
+        },
+        {
+          "name": "dateAddWorking_",
+          "args": "str,n"
+        },
+        {
+          "name": "working",
+          "args": "d"
+        },
+        {
+          "name": "dateAdd_",
+          "args": "str,n"
+        },
+        {
+          "name": "saveChecklistItem",
+          "args": "token,payload,clientSchema"
+        }
+      ]
+    },
+    {
+      "file": "src/ProjectAttributes.gs",
+      "sha256": "ff9d86d8efc03ef6f6abe3126e7663d07d0433439cd77ffc20f451e8e7a51808",
+      "bytes": 1229,
+      "functions": [
+        {
+          "name": "getProjectAttributes",
+          "args": "token,projectId"
+        },
+        {
+          "name": "saveProjectAttribute",
+          "args": "token,projectId,key,value,clientSchema"
+        }
+      ]
+    },
+    {
+      "file": "src/ProjectMemberService.gs",
+      "sha256": "0584e22a71c37bbe991589075efe8d940c951c072be8aca7bbfe885ad7aea46e",
+      "bytes": 6103,
+      "functions": [
+        {
+          "name": "memberUserRef_",
+          "args": "u"
+        },
+        {
+          "name": "projectMemberReferences_",
+          "args": "project,tasks,members"
+        },
+        {
+          "name": "projectMemberRemovalBlocks_",
+          "args": "actor,project,tasks,members"
+        },
+        {
+          "name": "assign",
+          "args": "id,task"
+        },
+        {
+          "name": "projectMemberSnapshot_",
+          "args": "actor,projectId,includeDirectory"
+        },
+        {
+          "name": "getProjectMemberSettings",
+          "args": "token,projectId"
+        },
+        {
+          "name": "saveProjectMembers",
+          "args": "token,projectId,payload,clientSchema"
+        },
+        {
+          "name": "safeId",
+          "args": "id"
+        }
+      ]
+    },
+    {
+      "file": "src/ProjectService.gs",
+      "sha256": "38c34846f8fe108c546515ee2865a0394f0557dc9bc0f08ed3722ab09db2e4b7",
+      "bytes": 6128,
+      "functions": [
+        {
+          "name": "getProjects",
+          "args": "token"
+        },
+        {
+          "name": "getProjectDetail",
+          "args": "token,projectId"
+        },
+        {
+          "name": "omitRow_",
+          "args": "x"
+        },
+        {
+          "name": "saveProject",
+          "args": "token,payload,clientSchema"
+        },
+        {
+          "name": "setProjectArchived",
+          "args": "token,projectId,archived,clientSchema"
+        },
+        {
+          "name": "purgeArchivedProject",
+          "args": "token,projectId,confirmation,clientSchema"
+        }
+      ]
+    },
+    {
+      "file": "src/ResourceService.gs",
+      "sha256": "c55445599df875d12de4e888d3416e0fcc513a74ed382b80a6b1060e0211075e",
+      "bytes": 5844,
+      "functions": [
+        {
+          "name": "saveAssignment",
+          "args": "token,payload,clientSchema"
+        },
+        {
+          "name": "getWorkload",
+          "args": "token,startDate,weekCount"
+        },
+        {
+          "name": "getDailyWorkload",
+          "args": "token,startDate,dayCount"
+        }
+      ]
+    },
+    {
+      "file": "src/SheetsMigrationAdapter.gs",
+      "sha256": "9f3b2c81207ab87967c21b4b29142f58d25f5acf0664d4264b299f9ea3131567",
+      "bytes": 9609,
+      "functions": [
+        {
+          "name": "upsertInternalConfig_",
+          "args": "db,key,value,description"
+        },
+        {
+          "name": "migrationSnapshot_",
+          "args": "db,columns"
+        },
+        {
+          "name": "getUnifiedMigrationDryRun",
+          "args": "token,targetSpreadsheetId"
+        },
+        {
+          "name": "applyUnifiedMigration",
+          "args": "token,targetSpreadsheetId,backupSpreadsheetId,expectedPlanFingerprint,confirmation,budget"
+        },
+        {
+          "name": "applyPilotUnifiedMigration",
+          "args": "token,targetSpreadsheetId,backupSpreadsheetId,expectedPlanFingerprint,confirmation,budget"
+        },
+        {
+          "name": "applySheetsMigration_",
+          "args": "token,targetSpreadsheetId,backupSpreadsheetId,expectedPlanFingerprint,confirmation,budget,mode"
+        },
+        {
+          "name": "config",
+          "args": ""
+        },
+        {
+          "name": "loadJournal",
+          "args": ""
+        },
+        {
+          "name": "marker",
+          "args": ""
+        },
+        {
+          "name": "snapshot",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "file": "src/StageBDemoSeed.gs",
+      "sha256": "0358eb4e862a768f9053505f0733229128acbff7af4f505cb27201216a80961a",
+      "bytes": 11745,
+      "functions": [
+        {
+          "name": "seedStageBDemoData",
+          "args": ""
+        },
+        {
+          "name": "day",
+          "args": "offset"
+        },
+        {
+          "name": "task",
+          "args": "suffixId,parent,name,type,picId,begin,end,progress,status,order"
+        }
+      ]
+    },
+    {
+      "file": "src/Styles.html",
+      "sha256": "e4fd86cf514d95b264fd4e53a3e97dfbd4959a9a5922dc86395b9509a1f93ec0",
+      "bytes": 14499,
+      "functions": []
+    },
+    {
+      "file": "src/TaskBatchService.gs",
+      "sha256": "c283e3fcfdebaa3f37d312059ad3f9a560084de72ebc93a08164a587a39fcbdf",
+      "bytes": 9764,
+      "functions": [
+        {
+          "name": "taskVersion_",
+          "args": "task"
+        },
+        {
+          "name": "strictTaskDate_",
+          "args": "value"
+        },
+        {
+          "name": "validateTaskTree_",
+          "args": "task,map"
+        },
+        {
+          "name": "saveTaskBatch",
+          "args": "token,projectId,operations,clientSchema"
+        },
+        {
+          "name": "getWorkspaceCompatibilityReport",
+          "args": "token,projectId"
+        }
+      ]
+    },
+    {
+      "file": "src/TaskService.gs",
+      "sha256": "8d1b89775bd66ff458dcb4792d563430c00f5f86cb656c284ec71c3a90c3b286",
+      "bytes": 3320,
+      "functions": [
+        {
+          "name": "saveTask",
+          "args": "token,payload,clientSchema"
+        },
+        {
+          "name": "updateMyTask",
+          "args": "token,taskId,progress,status,note,clientSchema"
+        }
+      ]
+    },
+    {
+      "file": "src/TaskStructureService.gs",
+      "sha256": "d03a8f3a82f7089d5444afbdd4b9fc8487441babf9706edbc63eb365fa4080e6",
+      "bytes": 14156,
+      "functions": [
+        {
+          "name": "structureVersion_",
+          "args": "tasks"
+        },
+        {
+          "name": "structureFullVersion_",
+          "args": "tasks"
+        },
+        {
+          "name": "structureRecords_",
+          "args": ""
+        },
+        {
+          "name": "structureEpoch_",
+          "args": ""
+        },
+        {
+          "name": "structureActive_",
+          "args": ""
+        },
+        {
+          "name": "structureReadView_",
+          "args": "rows"
+        },
+        {
+          "name": "assertStructureWritable_",
+          "args": ""
+        },
+        {
+          "name": "structurePendingFor_",
+          "args": "actor,projectId"
+        },
+        {
+          "name": "structureOrder_",
+          "args": "tasks"
+        },
+        {
+          "name": "planTaskStructure_",
+          "args": "tasks,projects,command"
+        },
+        {
+          "name": "hasSelectedParent",
+          "args": "t"
+        },
+        {
+          "name": "structureJournalKey_",
+          "args": "projectId,opId"
+        },
+        {
+          "name": "saveStructureJournal_",
+          "args": "key,journal"
+        },
+        {
+          "name": "structureSetFence_",
+          "args": "key"
+        },
+        {
+          "name": "structureReleaseFence_",
+          "args": ""
+        },
+        {
+          "name": "recoverStructureLocked_",
+          "args": "actor,key,journal,decision"
+        },
+        {
+          "name": "changeTaskStructure",
+          "args": "token,projectId,command,clientSchema"
+        },
+        {
+          "name": "assertStructureWritableForNew_",
+          "args": ""
+        },
+        {
+          "name": "recoverTaskStructure",
+          "args": "token,projectId,opId,decision,clientSchema"
+        }
+      ]
+    },
+    {
+      "file": "src/UnifiedProcedureImport.gs",
+      "sha256": "3a60171fe6d738ee3dcedcb0baa287c38115d9a1ea5849b5930968c91ca386ca",
+      "bytes": 3892,
+      "functions": [
+        {
+          "name": "unifiedProcedureImport_",
+          "args": "actor,projectId,templateId,phaseName,startDate"
+        },
+        {
+          "name": "checkpoint",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "file": "src/UnifiedTaskMigration.gs",
+      "sha256": "f6a5bca274a5edf3a2dd619b9bc25bc229fb7579b261385eb12ef68e17bfe616",
+      "bytes": 10520,
+      "functions": [
+        {
+          "name": "planUnifiedMigration_",
+          "args": "input"
+        },
+        {
+          "name": "unifiedReferenceErrors_",
+          "args": "snapshot"
+        },
+        {
+          "name": "unifiedDryRunReport_",
+          "args": "plan"
+        },
+        {
+          "name": "unifiedMigrationState_",
+          "args": "plan,cursor"
+        },
+        {
+          "name": "resumeUnifiedMigration_",
+          "args": "plan,adapter,maxOperations"
+        }
+      ]
+    },
+    {
+      "file": "src/UnifiedTaskModel.gs",
+      "sha256": "923f14745c60fd594b6b5d22a6312460b5b46501f54dbe5c28aea173b4c3d420",
+      "bytes": 7438,
+      "functions": [
+        {
+          "name": "unifiedClone_",
+          "args": "value"
+        },
+        {
+          "name": "unifiedCanonical_",
+          "args": "value"
+        },
+        {
+          "name": "unifiedFingerprint_",
+          "args": "snapshot"
+        },
+        {
+          "name": "unifiedType_",
+          "args": "value"
+        },
+        {
+          "name": "validateUnifiedHierarchy_",
+          "args": "tasks,projects"
+        },
+        {
+          "name": "validateUnifiedMove_",
+          "args": "tasks,projects,id,parentId"
+        },
+        {
+          "name": "assertLegacySchemaWrite_",
+          "args": ""
+        },
+        {
+          "name": "databaseSchema_",
+          "args": "fresh"
+        },
+        {
+          "name": "unifiedDatabase_",
+          "args": ""
+        },
+        {
+          "name": "tableColumns_",
+          "args": "table"
+        },
+        {
+          "name": "assertSchemaWrite_",
+          "args": ""
+        },
+        {
+          "name": "assertClientSchema_",
+          "args": "clientSchema"
+        },
+        {
+          "name": "executionTask_",
+          "args": "task"
+        },
+        {
+          "name": "unifiedSortOrder_",
+          "args": "tasks,task,old,requested"
+        },
+        {
+          "name": "validateUnifiedTaskWrite_",
+          "args": "task,old,all,input"
+        }
+      ]
+    },
+    {
+      "file": "src/appsscript.json",
+      "sha256": "628ca3c6f77bdc543f0bfd2d938ccca3ae3e7a22541f3e580b97a0ce79a959eb",
+      "bytes": 94,
+      "functions": []
+    }
+  ]
+}

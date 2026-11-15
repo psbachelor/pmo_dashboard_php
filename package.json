@@ -1,0 +1,1 @@
+{"name":"vcx-pmo-parity-tests","private":true,"scripts":{"test":"bash tests/run.sh"},"devDependencies":{"playwright":"1.62.1"}}

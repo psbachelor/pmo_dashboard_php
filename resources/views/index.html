@@ -1,25 +1,12 @@
-<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VCX PMO Control Tower</title>
-<style>
-:root{font-family:system-ui,-apple-system,sans-serif;color:#243047;background:#f4f6fa}
-*{box-sizing:border-box}body{margin:0}header{background:white;border-bottom:1px solid #e2e7ef;padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
-main{max-width:1200px;margin:32px auto;padding:0 20px}.panel{background:white;border:1px solid #e1e5ed;border-radius:12px;padding:22px;margin-bottom:18px;box-shadow:0 2px 8px #15223808}
-h1{font-size:21px;margin:0}h2{font-size:17px;margin:0 0 18px}input,button{font:inherit;border-radius:7px;padding:10px 12px}input{border:1px solid #cad3df;max-width:100%;margin:5px}button{border:0;background:#2366d1;color:white;cursor:pointer}button.secondary{background:#e9eef7;color:#243047}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:12px;border-bottom:1px solid #e9edf3}th{background:#f7f9fc}tr[data-id]{cursor:pointer}tr[data-id]:hover{background:#f5f8ff}.muted{color:#66758c}.error{color:#b42318}.hidden{display:none} .tag{display:inline-block;border-radius:12px;background:#edf1f8;padding:4px 9px}
-</style></head>
-<body><header><h1>VCX PMO · Control Tower</h1><div><span id="identity"></span> <button class="secondary hidden" id="logout">Đăng xuất</button></div></header>
-<main><section class="panel" id="login"><h2>Đăng nhập</h2><form id="loginForm"><input id="username" autocomplete="username" placeholder="Tên đăng nhập" required><input id="password" type="password" autocomplete="current-password" placeholder="Mật khẩu" required><button>Đăng nhập</button></form><p class="error" id="loginError" role="alert"></p></section>
-<section id="app" class="hidden"><div class="panel"><h2>Danh sách dự án</h2><p class="muted">Phiên bản 0.1 — xem danh mục và công việc, chưa hỗ trợ cập nhật.</p><div style="overflow:auto"><table><thead><tr><th>Dự án</th><th>PM</th><th>Trạng thái</th><th>RAG</th><th>Thời gian</th></tr></thead><tbody id="projects"></tbody></table></div></div><div id="detail" class="panel hidden"><button class="secondary" id="back">← Danh sách</button><h2 id="projectName"></h2><div style="overflow:auto"><table><thead><tr><th>Công việc</th><th>PIC</th><th>Trạng thái</th><th>Tiến độ</th><th>Bắt đầu</th><th>Kết thúc</th></tr></thead><tbody id="tasks"></tbody></table></div></div></section></main>
-<script>
-const el=id=>document.getElementById(id);let csrf='';
-async function api(path,options={}){const r=await fetch(path,{credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},...options});const data=await r.json();if(!r.ok)throw Error(data.error||'Lỗi hệ thống');return data}
-function cell(row,value){const td=document.createElement('td');td.textContent=value??'';row.append(td)}
-function renderRows(id,items,fields,click){const body=el(id);body.replaceChildren();for(const item of items){const tr=document.createElement('tr');for(const field of fields)cell(tr,item[field]);if(click){tr.dataset.id=item.Project_ID;tr.addEventListener('click',()=>click(item.Project_ID))}body.append(tr)}}
-async function showProjects(){const data=await api('/api/projects');renderRows('projects',data.projects,['Project_Name','PM_ID','Status','RAG','Start_Date'],showDetail);el('detail').classList.add('hidden')}
-async function showDetail(id){try{const data=await api('/api/project?id='+encodeURIComponent(id));el('projectName').textContent=data.project.Project_Name;renderRows('tasks',data.project.tasks,['Task_Name','PIC_ID','Status','Progress','Start_Date','End_Date']);el('detail').classList.remove('hidden')}catch(e){alert(e.message)}}
-async function start(){csrf=(await api('/api/csrf')).csrf;try{const me=await api('/api/me');el('identity').textContent=me.name+' · '+me.role;el('login').classList.add('hidden');el('app').classList.remove('hidden');el('logout').classList.remove('hidden');await showProjects()}catch(e){el('login').classList.remove('hidden')}}
-el('loginForm').addEventListener('submit',async e=>{e.preventDefault();el('loginError').textContent='';try{await api('/api/login',{method:'POST',body:JSON.stringify({username:el('username').value,password:el('password').value})});el('password').value='';await start()}catch(err){el('loginError').textContent=err.message}});
-el('logout').addEventListener('click',async()=>{await api('/api/logout',{method:'POST'});location.reload()});
-el('back').addEventListener('click',()=>el('detail').classList.add('hidden'));
-start().catch(e=>el('loginError').textContent=e.message);
-</script></body></html>
+<!DOCTYPE html><html><head><base target="_top"><meta name="csrf-token" content="__CSRF__"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="assets/styles.css"></head>
+<body><div class="app"><aside><div class="brand">VCX <small>PMO</small></div><div class="muted side-sub">CONTROL TOWER • MVP 1.2.1</div><nav>
+<button data-view="dashboard" class="nav active">▦ &nbsp; Dashboard</button>
+<button data-view="projects" class="nav">▤ &nbsp; Projects</button>
+<button data-view="gantt" class="nav">▥ &nbsp; Gantt</button>
+<button data-view="resources" class="nav">▦ &nbsp; Workload</button>
+<button data-view="issues" class="nav">⚑ &nbsp; Issues</button><button data-view="mytasks" class="nav">✓ &nbsp; My Tasks</button><button data-view="users" class="nav" id="users-nav" style="display:none">♙ &nbsp; Accounts</button>
+</nav><p class="muted footer">PHP 8.3 + MySQL 8<br>Access verified server-side</p></aside>
+<main><header><div><h1 id="page-title">Portfolio Dashboard</h1><div id="subtitle" class="muted">Danh mục dự án VCX</div></div><div><span id="who" class="who">Chưa đăng nhập</span> <button id="change-password-button" class="secondary" style="display:none" onclick="showChangePassword()">Đổi mật khẩu</button> <button id="logout" class="secondary" style="display:none">Đăng xuất</button> <button id="refresh" class="secondary">↻ Làm mới</button></div></header>
+<div id="alert" role="alert"></div><div id="login-screen" class="login-screen"><form id="login-form" class="login-card"><h2>Đăng nhập PMO</h2><p class="muted">Tài khoản do PMO cấp. Không sử dụng mật khẩu Gmail.</p><label class="field">Username<input name="username" autocomplete="username" required minlength="3"></label><label class="field">Password<input name="password" type="password" autocomplete="current-password" required></label><button type="submit">Đăng nhập</button><p class="tiny muted">Phiên đăng nhập có hiệu lực tối đa 8 giờ.</p></form></div><div id="content" class="content" style="display:none"></div></main></div>
+<div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h2 id="modal-title">Chi tiết</h2><button id="modal-close" class="secondary">✕</button></div><div id="modal-content"></div></div></div>
+<script src="assets/app.js"></script></body></html>

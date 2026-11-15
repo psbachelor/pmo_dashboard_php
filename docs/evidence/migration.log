@@ -1,0 +1,40 @@
+PASS migration valid sample and repeated template IDs
+PASS migration duplicate template step numbers retain GAS semantics
+PASS migration dry-run has zero database writes
+PASS migration injected failure surfaces
+PASS migration rollback clears PROJECT_GROUPS
+PASS migration rollback clears PHASES
+PASS migration rollback clears PROCEDURE_TEMPLATES
+PASS migration rollback clears CHECKLIST_ITEMS
+PASS migration rollback clears PROJECTS
+PASS migration rollback clears TASKS
+PASS migration rollback clears ASSIGNMENTS
+PASS migration rollback clears ISSUES
+PASS migration rollback clears USERS
+PASS migration rollback clears PROJECT_MEMBERS
+PASS migration rollback clears CALENDAR
+PASS migration rollback clears CONFIG
+PASS migration rollback clears AUTH_USERS
+PASS migration rollback clears AUTH_SESSIONS
+PASS migration rollback clears LOGIN_ATTEMPTS
+PASS migration rollback clears PROJECT_ATTRIBUTES
+PASS migration rollback clears AUDIT_LOG
+PASS migration export/import preserves every ID, value, relationship and row order
+PASS migration completed import retry is terminal/idempotent
+PASS migration different import refuses nonempty target
+PASS migration foreign key constraint rejects orphan
+PASS migration legacy snapshot validates
+PASS migration legacy migration plan validates
+PASS migration legacy summary warning reported
+PASS migration legacy-to-unified result validates
+PASS migration legacy phase task mapping
+PASS migration legacy child ID preserved
+PASS migration legacy milestone preserved
+PASS migration CSV BOM/multiline/quotes roundtrip
+PASS migration CSV wrong row width rejected
+PASS migration clean pilot synthetic seed creates full task tree
+PASS migration clean pilot seed preserves existing users
+PASS migration clean pilot seed preserves accounts calendar templates
+PASS migration clean pilot seeded relationships validate
+PASS migration seed cannot run twice
+{"passed":39,"failed":0}

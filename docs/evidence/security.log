@@ -1,0 +1,1 @@
+{"passed":3,"failed":0,"checks":["stored project/task HTML is escaped","inline JS arguments preserve hostile IDs as data","no injected handler executes"]}
