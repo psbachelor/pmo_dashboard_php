@@ -1,0 +1,171 @@
+{
+  "PROJECT_GROUPS": [
+    "Group_ID",
+    "Group_Name",
+    "Region",
+    "Owner_ID",
+    "Description"
+  ],
+  "PHASES": [
+    "Phase_ID",
+    "Project_ID",
+    "Phase_Name",
+    "Phase_Order",
+    "Start_Date",
+    "End_Date",
+    "Status",
+    "RAG",
+    "Template_ID"
+  ],
+  "PROCEDURE_TEMPLATES": [
+    "Template_ID",
+    "Template_Name",
+    "Step_No",
+    "Task_Name",
+    "Duration_Days",
+    "Required_Document",
+    "Responsible_Role"
+  ],
+  "CHECKLIST_ITEMS": [
+    "Item_ID",
+    "Project_ID",
+    "Phase_ID",
+    "Task_ID",
+    "Item_Name",
+    "Required",
+    "Status",
+    "Due_Date",
+    "Owner_ID",
+    "Evidence_URL",
+    "Notes",
+    "Last_Updated"
+  ],
+  "PROJECTS": [
+    "Project_ID",
+    "Project_Name",
+    "Project_Type",
+    "Department",
+    "Sponsor",
+    "PM_ID",
+    "Objective",
+    "Start_Date",
+    "End_Date",
+    "Status",
+    "RAG",
+    "Health_Summary",
+    "Last_Updated",
+    "Group_ID"
+  ],
+  "TASKS": [
+    "Task_ID",
+    "Project_ID",
+    "Parent_Task_ID",
+    "Task_Name",
+    "Task_Type",
+    "PIC_ID",
+    "Start_Date",
+    "End_Date",
+    "Progress",
+    "Status",
+    "RAG",
+    "Dependency_ID",
+    "Description",
+    "Phase_ID",
+    "Member_Update",
+    "Member_Updated_At"
+  ],
+  "ASSIGNMENTS": [
+    "Assignment_ID",
+    "Task_ID",
+    "User_ID",
+    "Start_Date",
+    "End_Date",
+    "Allocation_Pct",
+    "Planned_Effort_Days",
+    "Role"
+  ],
+  "ISSUES": [
+    "Issue_ID",
+    "Project_ID",
+    "Task_ID",
+    "Title",
+    "Description",
+    "Severity",
+    "Impact",
+    "Owner_ID",
+    "Open_Date",
+    "Due_Date",
+    "Status",
+    "Resolution_Plan",
+    "Escalation_Level",
+    "Decision_Required",
+    "Last_Updated",
+    "Created_By"
+  ],
+  "USERS": [
+    "User_ID",
+    "Email",
+    "Full_Name",
+    "Department",
+    "System_Role",
+    "Weekly_Capacity_Days",
+    "Active"
+  ],
+  "PROJECT_MEMBERS": [
+    "Member_ID",
+    "Project_ID",
+    "User_ID",
+    "Project_Role"
+  ],
+  "CALENDAR": [
+    "Date",
+    "Is_Working_Day",
+    "Note"
+  ],
+  "CONFIG": [
+    "Key",
+    "Value",
+    "Description"
+  ],
+  "AUTH_USERS": [
+    "User_ID",
+    "Username",
+    "Password_Salt",
+    "Password_Hash",
+    "Iterations",
+    "Active",
+    "Must_Change_Password",
+    "Created_At"
+  ],
+  "AUTH_SESSIONS": [
+    "Session_ID",
+    "User_ID",
+    "Token_Hash",
+    "Created_At",
+    "Expires_At",
+    "Revoked"
+  ],
+  "LOGIN_ATTEMPTS": [
+    "Attempt_ID",
+    "Username",
+    "Timestamp",
+    "Success"
+  ],
+  "PROJECT_ATTRIBUTES": [
+    "Attribute_ID",
+    "Project_ID",
+    "Field_Key",
+    "Field_Value",
+    "Updated_At"
+  ],
+  "AUDIT_LOG": [
+    "Audit_ID",
+    "Timestamp",
+    "Actor_Email",
+    "Entity",
+    "Entity_ID",
+    "Action",
+    "Before_JSON",
+    "After_JSON"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "backend": {
+    "passed": 31,
+    "failed": 0,
+    "assertions": 174,
+    "php": "8.3.36",
+    "mysql": "8.0.46"
+  },
+  "gas_unified": {
+    "passed": 71,
+    "failed": 0,
+    "baseline": "c0e3db58a7d0522408c633dbb22403522e4ff8d3"
+  },
+  "gas_legacy": {
+    "passed": 68,
+    "failed": 0,
+    "baseline": "c0e3db58a7d0522408c633dbb22403522e4ff8d3"
+  },
+  "migration": {
+    "passed": 39,
+    "failed": 0
+  },
+  "concurrency": {
+    "passed": 4,
+    "failed": 0,
+    "checks": [
+      "concurrent writer fence",
+      "retry after lock release",
+      "consistent read snapshot",
+      "concurrent business edit preserved and structure rolled back"
+    ]
+  },
+  "http_api": {
+    "passed": 14,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 17,
+    "failed": 0
+  },
+  "xss_browser": {
+    "passed": 3,
+    "failed": 0,
+    "checks": [
+      "stored project/task HTML is escaped",
+      "inline JS arguments preserve hostile IDs as data",
+      "no injected handler executes"
+    ]
+  },
+  "total_passed": 247,
+  "baseline": "c0e3db58a7d0522408c633dbb22403522e4ff8d3",
+  "date": "2026-11-15",
+  "syntax_php_files": 22
+}

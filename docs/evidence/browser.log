@@ -1,0 +1,18 @@
+PASS browser normal login and dashboard
+PASS browser project route and 21-row spreadsheet
+PASS browser quick Enter add and debounced autosave
+PASS browser inline edit, Escape cancel, rapid progress and custom value
+PASS browser inline timeline click/Shift-click updates schedule and milestone
+PASS browser name-search PIC and Parent references
+PASS browser structural outdent with preserved task
+PASS browser members search/delta add from workspace
+PASS browser checklist and issue forms retain values
+PASS browser desktop screenshot and one common fixed-width timeline
+PASS browser Gantt day/week and workload day/week screens
+PASS browser project creation, template preview/import and allocation forms
+PASS browser My Tasks update and Issue Register screens
+PASS browser archive restore purge dialogs and archived register
+PASS browser account provision/reset through admin screen
+PASS browser mobile shell and forced-password flow for scoped member
+PASS browser no uncaught frontend errors
+{"passed":17,"failed":0}

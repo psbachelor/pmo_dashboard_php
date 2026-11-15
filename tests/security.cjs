@@ -1,0 +1,11 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict');
+let browser;
+(async()=>{
+ browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});const page=await browser.newPage();const base=process.env.PMO_TEST_URL||'http://127.0.0.1:8080/';await page.goto(base);await page.locator('[name=username]').fill('admin');await page.locator('[name=password]').fill('changed-test-password');await page.locator('#login-form button[type=submit]').click();await page.locator('.cards').waitFor();
+ const name='Security "><img src=x onerror="window.__pmoXss=1">';
+ const project=await page.evaluate(async name=>gas('saveProject',{Project_Name:name,Status:'In Progress',RAG:'Green'}),name);
+ await page.locator('[data-view=projects]').click();await page.locator('#project-search').fill('Security');await page.getByRole('button',{name,exact:true}).click();await page.locator('#quick-task').waitFor();await page.locator('#quick-task').fill(name);await page.locator('#quick-task').press('Enter');await page.waitForFunction(()=>document.querySelector('#workspace-save')?.textContent==='Saved'&&!workspaceDirty());assert.equal(await page.evaluate(()=>window.__pmoXss),undefined);assert.equal(await page.locator('img[src=x]').count(),0);
+ const encoded=await page.evaluate(()=>{const original=window.openProject;const value="id');window.__pmoXss=1;//\"&<>";let received;window.openProject=id=>received=id;const b=document.createElement('div');b.innerHTML=`<button onclick="openProject(${arg(value)})">test</button>`;document.body.append(b);b.firstChild.click();b.remove();window.openProject=original;return {same:received===value,executed:window.__pmoXss===1};});assert.equal(encoded.same,true);assert.equal(encoded.executed,false);
+ await page.evaluate(async id=>{await gas('setProjectArchived',id,true);await gas('purgeArchivedProject',id,'PURGE:'+id);},project.id);
+ await browser.close();console.log(JSON.stringify({passed:3,failed:0,checks:['stored project/task HTML is escaped','inline JS arguments preserve hostile IDs as data','no injected handler executes']}));
+})().catch(async e=>{console.error(e);await browser?.close();process.exitCode=1;});
