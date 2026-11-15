@@ -1,17 +1,15 @@
 <?php
 declare(strict_types=1);
-require dirname(__DIR__) . '/app/bootstrap.php';
-if (PHP_SAPI !== 'cli') { http_response_code(403); exit; }
-if ($argc !== 5) { fwrite(STDERR, "Usage: php scripts/create_admin.php USER_ID USERNAME FULL_NAME EMAIL\nPassword is read from VCX_ADMIN_PASSWORD env.\n"); exit(1); }
-$password = getenv('VCX_ADMIN_PASSWORD');
-if (!$password || strlen($password) < 12) { fwrite(STDERR, "VCX_ADMIN_PASSWORD must be at least 12 characters.\n"); exit(1); }
-$db = \VCX\Core\Database::connect();
-$db->beginTransaction();
-try {
-    $stmt = $db->prepare("INSERT INTO users (User_ID,Email,Full_Name,System_Role,Active) VALUES (?,?,?,'PMO_ADMIN',1)");
-    $stmt->execute([$argv[1], $argv[4], $argv[3]]);
-    $stmt = $db->prepare('INSERT INTO auth_users(User_ID,Username,Password_Hash,Active) VALUES (?,?,?,1)');
-    $stmt->execute([$argv[1], $argv[2], password_hash($password, PASSWORD_DEFAULT)]);
-    $db->commit();
-    echo "Admin created.\n";
-} catch (Throwable $e) { $db->rollBack(); fwrite(STDERR, "Failed to create admin.\n"); exit(1); }
+require dirname(__DIR__).'/app/bootstrap.php';
+use VCX\Parity\{Store,Auth};
+if(PHP_SAPI!=='cli'){http_response_code(404);exit;}
+try{
+    $s=new Store(\VCX\Core\Database::connect());$s->transaction(function()use($s){
+        Store::check(!$s->rows('AUTH_USERS'),'Bootstrap already done; use account management.');
+        $username=getenv('BOOTSTRAP_ADMIN_USERNAME')?:'';$password=getenv('BOOTSTRAP_ADMIN_PASSWORD')?:'';$configuredId=getenv('BOOTSTRAP_ADMIN_USER_ID');$id=$configuredId!==false&&$configuredId!==''?$configuredId:'ADMIN';
+        Store::check(preg_match('/^[a-z0-9._-]{3,64}$/D',$username)&&\VCX\Parity\ControlTower::length($password)>=8&&\VCX\Parity\ControlTower::length($password)<=128,'Set BOOTSTRAP_ADMIN_USERNAME and BOOTSTRAP_ADMIN_PASSWORD (8–128 chars) in environment.');
+        $user=$s->find('USERS',$id);if(!$user){$user=['User_ID'=>$id,'Email'=>getenv('BOOTSTRAP_ADMIN_EMAIL')?:'admin@example.invalid','Full_Name'=>'PMO Administrator','Department'=>'PMO','System_Role'=>'PMO_ADMIN','Weekly_Capacity_Days'=>'5','Active'=>'TRUE'];$s->put('USERS',$user);}Store::check($user['System_Role']==='PMO_ADMIN'&&$user['Active']==='TRUE','Bootstrap user must be active PMO_ADMIN.');
+        (new Auth($s))->provision($user,$id,$username,$password);
+        if(!$s->find('CONFIG','DATABASE_SCHEMA_VERSION'))$s->config('DATABASE_SCHEMA_VERSION','UNIFIED_TASKS_V2');
+    });echo "Admin created. Change temporary password on first login. Remove bootstrap password from environment.\n";
+}catch(Throwable $e){fwrite(STDERR,$e->getMessage()."\n");exit(1);}

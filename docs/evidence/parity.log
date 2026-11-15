@@ -1,0 +1,38 @@
+PASS unit: PBKDF2 matches GAS known HMAC-SHA256 derivation
+PASS unit: strict dates and inclusive calendar guards
+PASS unit: GAS Number coercion and procedure fallback retain source semantics
+PASS auth: login, active account, expiry, revoke, mandatory password change
+PASS auth: five failed attempts commit before 15 minute lock
+PASS auth: account provisioning revokes all sessions and rejects duplicate username
+PASS auth: first active matching username retains GAS identity when legacy case variants exist
+PASS permissions: all four roles, membership, assigned-only visibility and archived read rules
+PASS projects: admin creates, planner whitelist edits, dates/RAG/groups validated
+PASS attributes: scoped view and upsert by project/key
+PASS tasks: planner CRUD, execution-only PIC updates and schema gate
+PASS hierarchy: cycle, depth, phases, milestones and cross-project references
+PASS batch: partial outcomes, stable IDs, conflict detection, duplicate ops, tmp references
+PASS batch: PIC cannot edit plan/system fields, executive cannot edit execution
+PASS structure: indent/outdent/up/down, idempotent replay and stale structure CAS
+PASS structure: invalid descendant/milestone drops, PHASE reparent and recovery ownership
+PASS structure: before/after/inside/reparent commands and max-depth descendants
+PASS structure API: validation/recovery errors retain GAS structured outcomes
+PASS phase execution: string zero is progress and must not be accepted as blank
+PASS members: delta edits, blocked PM/open-task removal, no side-effect on PIC/allocation
+PASS procedures: multi-step duplicate template IDs, working days, checklist generation and retry
+PASS checklist and issues: own-only updates, HTTPS evidence, escalation/decision and RAG independence
+PASS resources: assignment validation, blank allocation and daily/weekly makeup rules
+PASS reports: scoped KPI, phase exclusion, required docs, archive exclusion
+PASS purge: archived confirmation, relationships deleted, shared data/audit retained
+PASS import: valid sample, invalid flags/dates/IDs/headers/references/XSS rejected without writes
+PASS recovery: committed read view, write fence, resume/rollback and conflict guards
+PASS passwords: GAS UTF-16 length rules apply to non-ASCII and emoji
+PASS performance: request-local scope cache invalidates after authorization-changing writes
+PASS performance: opt-in aggregate tracing contains no tokens or data
+PASS security: unlisted APIs, untrusted ownership, system fields, SQL injection
+{
+    "passed": 31,
+    "failed": 0,
+    "assertions": 174,
+    "php": "8.3.36",
+    "mysql": "8.0.46"
+}

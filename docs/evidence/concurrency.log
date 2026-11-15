@@ -1,0 +1,1 @@
+{"passed":4,"failed":0,"checks":["concurrent writer fence","retry after lock release","consistent read snapshot","concurrent business edit preserved and structure rolled back"]}
